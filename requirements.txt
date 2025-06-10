@@ -1,0 +1,7 @@
+pymongo[srv]
+google-auth
+requests
+tqdm
+certifi
+flask
+openai

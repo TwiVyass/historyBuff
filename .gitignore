@@ -1,0 +1,19 @@
+# Python virtual environment
+venv/
+Lib/
+Scripts/
+# A more general rule for any virtual environment folder
+*/
+
+# Environment variables - DO NOT COMMIT YOUR SECRETS
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE and OS specific files
+.idea/
+.DS_Store
