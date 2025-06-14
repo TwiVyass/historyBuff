@@ -1,0 +1,197 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion History Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/" class="brand">HauteBot</a>
+        </div>
+        <div class="nav-links">
+            <a href="/about">About</a>
+            <a href="/explore">Fashion Timeline</a>
+        </div>
+    </div>
+    <div class="chat-container">
+        <h1>Fashion History Explorer</h1>
+        <div class="chat-box">
+            <h3>Explore Eras of Style</h3>
+            <div class="era">
+                <h4>1920s – The Jazz Age</h4>
+                <p>Think flapper dresses, Art Deco embellishments, and dropped waists.</p>
+                <button onclick="window.location.href='/?query=Draw a modern gown inspired by 1920s Art Deco'">Ask HauteBot</button>
+            </div>
+            <div class="era">
+                <h4>Renaissance – Power & Drama</h4>
+                <p>Ornate sleeves, velvet gowns, and regal silhouettes.</p>
+                <button onclick="window.location.href='/?query=Show me sleeves from the Renaissance'">Ask HauteBot</button>
+            </div>
+            <div class="era">
+                <h4>1970s – Free Spirit</h4>
+                <p>Bell bottoms, fringe, boho prints, and disco glam.</p>
+                <button onclick="window.location.href='/?query=Design an outfit with 70s disco flair'">Ask HauteBot</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Fashion Timeline</title>
+    <style>
+        .slider-container {
+            margin: 40px auto;
+            max-width: 800px;
+            color: #c79827;
+        }
+
+        #year-label {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 6px;
+            background: #c79827;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 6px;
+            background: #c79827;
+            border-radius: 3px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #c79827;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+
+        .image-display {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .image-display img {
+            max-width: 150px;
+            width: 50%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .description {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/" class="brand">HauteBot</a>
+        </div>
+        <div class="nav-links">
+            <a href="/about">About</a>
+            <a href="/explore">Fashion Timeline</a>
+        </div>
+    </div>
+
+    <h1>
+        <p class="chat-instruction">Fashion Timeline Explorer<br>Slide through the years to explore fashion from different eras!</p>
+    </h1>
+
+    <div class="slider-container">
+        <div id="year-label">Year: <span id="selected-year">1920</span></div>
+        <input type="range" id="year-slider" min="1900" max="2025" step="10" value="1920">
+
+        <div class="image-display">
+            <img id="fashion-image" src="/static/1920-2.jpg" alt="Fashion Image">
+            <div class="description" id="fashion-description">Roaring Twenties – Flapper dresses & jazz-age elegance.</div>
+        </div>
+    </div>
+
+    <script>
+        const timeline = {
+            "1920": {
+                image: "/static/1920-2.jpg",
+                description: "Roaring Twenties – Flapper dresses & jazz-age elegance."
+            },
+            "1930": {
+                image: "/static/1930s.jpeg",
+                description: "1930s – Bias-cut gowns and elegant Hollywood glam."
+            },
+            "1940": {
+                image: "/static/1940s.jpg",
+                description: "1940s – Utility fashion & wartime elegance."
+            },
+            "1950": {
+                image: "/static/1950s.jpeg",
+                description: "1950s – Hourglass silhouettes, poodle skirts."
+            },
+            "1960": {
+                image: "/static/1960s.jpeg",
+                description: "1960s – Mod fashion, miniskirts, and go-go boots."
+            },
+            "1970": {
+                image: "/static/1970s.jpg",
+                description: "1970s – Bell-bottoms, disco and hippie influences."
+            },
+            "1980": {
+                image: "/static/1980s.jpeg",
+                description: "1980s – Shoulder pads, neon colors, power dressing."
+            },
+            "1990": {
+                image: "/static/1990s.jpg",
+                description: "1990s – Grunge, minimalism and casual streetwear."
+            },
+            "2000": {
+                image: "/static/2000s.jpg",
+                description: "Y2K – Metallics, low-rise jeans and frosty makeup."
+            },
+            "2010": {
+                image: "/static/2010ss.png",
+                description: "2010s – Athleisure, fast fashion, Instagram aesthetics."
+            },
+            "2020": {
+                image: "/static/2020s.png",
+                description: "2020s – Sustainability, genderless fashion."
+            }
+        };
+
+        const slider = document.getElementById("year-slider");
+        const yearLabel = document.getElementById("selected-year");
+        const image = document.getElementById("fashion-image");
+        const description = document.getElementById("fashion-description");
+
+        slider.addEventListener("input", () => {
+            const year = slider.value;
+            yearLabel.textContent = year;
+
+            // Find closest matching year in timeline
+            let closest = Object.keys(timeline).reduce((prev, curr) => {
+                return Math.abs(curr - year) < Math.abs(prev - year) ? curr : prev;
+            });
+
+            image.src = timeline[closest].image;
+            description.textContent = timeline[closest].description;
+        });
+    </script>
+</body>
+</html>

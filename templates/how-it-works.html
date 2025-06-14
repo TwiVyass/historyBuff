@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How It Works</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/" class="brand">HauteBot</a>
+        </div>
+        <div class="nav-links">
+            <a href="/about">About</a>
+            <a href="/how-it-works">How It Works</a>
+            <a href="/explore">Fashion Timeline</a>
+        </div>
+    </div>
+    <div class="chat-container-1">
+        <h1>How HauteBot Works</h1>
+        <div class="chat-box">
+            <h3>Architecture Overview</h3>
+            <p>User input is sent through a Flask backend, which interacts with OpenAI's GPT and image generation models (like DALL·E). The response is parsed and shown as conversational messages — or concept sketches if requested.</p>
+            <h3>Stack:</h3>
+            <ul>
+                <li>Frontend: HTML, CSS (glam-themed)</li>
+                <li>Backend: Flask (Python)</li>
+                <li>APIs: OpenAI Chat, Image Generation</li>
+            </ul>
+            <h3>Sample Flow</h3>
+            <p><em>“Draw a modern gown inspired by 1920s Art Deco.”</em><br>
+            → Generates a sketch + details about geometric cuts, metallic palettes, and dropped waistlines.</p>
+        </div>
+    </div>
+</body>
+</html>

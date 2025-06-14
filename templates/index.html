@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HauteBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Optional: Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/phosphor.css">
+</head>
+
+<body>
+
+    <!-- Header/Nav -->
+    <div class="header">
+        <div class="logo">HauteBot</div>
+        <div class="nav-links">
+            <a href="/about">About</a>
+            <a href="/explore">Fashion Timeline</a>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <h1>
+            <p class="chat-instruction">Type your fashion idea, question, or prompt below — like "Show me sleeve styles from the Renaissance" or "Design a red carpet look inspired by ancient Greece." <br> I’ll bring fashion history, design inspiration, and AI creativity right to you.</p>
+        </h1>
+        <div class="chat-box" id="chat-box">
+            {% for message in chat_history %}
+                {% if message.role == 'user' %}
+                    <div class="chat-message user-message">
+                        <p>{{ message.content }}</p>
+                    </div>
+                {% elif message.role == 'assistant' %}
+                    <div class="chat-message assistant-message">
+                        {% if message.content.title %}
+                            <h3>{{ message.content.title }}</h3>
+                        {% endif %}
+                        {% if message.content.points %}
+                            <ul>
+                                {% for point in message.content.points %}
+                                    <li>{{ point }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <form method="post" class="chat-form">
+            <input type="text" name="query" placeholder="Ask for inspiration..." required autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>✨✨✨</p>
+    </footer>
+
+</body>
+</html>
