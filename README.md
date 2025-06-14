@@ -20,7 +20,7 @@ Think of it as your digital fashion mentor—one that talks, remembers, and illu
 
 ---
 
-## System Architecture
+## ✨ System Architecture
 
 HauteBot uses a multi-agent architecture to intelligently route user inputs, whether they’re asking for information or an image.
 
@@ -32,7 +32,7 @@ HauteBot uses a multi-agent architecture to intelligently route user inputs, whe
 
 ---
 
-## Tech Stack
+## ✨ Tech Stack
 
 ### Core & Backend
 - Python + Flask
@@ -56,7 +56,7 @@ HauteBot uses a multi-agent architecture to intelligently route user inputs, whe
 
 ---
 
-## Running Locally
+## ✨ Running Locally
 
 To run this project on your local machine:
 
