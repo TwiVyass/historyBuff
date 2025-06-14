@@ -4,7 +4,7 @@
 
 Built to inspire and educate, HauteBot is an intelligent assistant that allows users to explore fashion through the ages—one conversation at a time. Whether you're curious about 1920s flapper trends or want to visualize avant-garde concepts, HauteBot bridges the gap between history and creativity with the power of AI.
 
-Think of it as your digital fashion mentor—one that talks, remembers, and illustrates.
+Think of it as your digital fashion mentor—one that talks and remembers.
 
 **Try it out: https://historybuff.onrender.com/**
 
@@ -13,9 +13,7 @@ Think of it as your digital fashion mentor—one that talks, remembers, and illu
 ## ✨ Features
 
 - **Conversational Fashion Expert:** Ask about styles from specific eras, trends, or movements. HauteBot understands context and gives rich, historically-grounded answers.
-- **AI-Powered Visual Creator:** Want to see "a futuristic sari" or "Gothic revival meets punk"? Just ask—HauteBot can generate stunning visuals powered by DALL·E 3.
 - **Smart Fashion Retrieval (RAG):** HauteBot searches a curated dataset of garments from The Met using real-time vector similarity search to give accurate examples.
-- **Interactive Chat History:** Easily revisit your past queries and generated images in a clean, scrollable modal—perfect for inspiration tracking.
 - **Readable & Structured Output:** Responses are parsed and presented in a visually clean layout with bullet points and section headers for easy reading.
 
 ---
