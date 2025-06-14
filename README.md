@@ -26,7 +26,7 @@ HauteBot uses a multi-agent architecture to intelligently route user inputs, whe
 
 1. **Central Router:** Interprets the user’s intent and forwards the query.
 2. **Historian Agent:**
-   - Embeds queries using Google Cloud’s Multimodal Embedding API.
+   - Embeds queries using OpenAI's embedding model
    - Retrieves garment matches using MongoDB Atlas Vector Search.
    - Generates a response using OpenAI’s GPT model.
 
